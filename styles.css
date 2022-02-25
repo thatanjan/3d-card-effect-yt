@@ -9,4 +9,62 @@ body {
 	max-width: 100vw;
 	overflow: hidden;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	display: grid;
+	place-items: center;
+}
+
+.flip-box {
+	width: 60vw;
+	cursor: pointer;
+	perspective: 1000px;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+.flip-box-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding-top: 56.25%;
+	text-align: center;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.flip-box-back {
+	background-color: #ff6f00;
+	color: white;
+	display: grid;
+	align-items: center;
+	transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 600px) {
+	.flip-box-inner {
+		padding-top: 100%;
+	}
+	.flip-box {
+		width: 90vw;
+	}
 }
